@@ -1,4 +1,4 @@
-%%%%%%%% Import/Generate Data %%%%%%%%
+3%%%%%%%% Import/Generate Data %%%%%%%%
 clear;
 trueCov = eye(50); % Covariance matrix is just 50*50 identity matrix
 means = zeros(1265,50); 
@@ -15,7 +15,7 @@ avgReturns = mean(Data')'; % average return of each asset
 
 expectedReturn = 0.04; % we want this return from our portfolio
 eta = 0.1;
-func = @(w) w'*estimatedCov*w * sum(abs(w))*eta;
+func = @(w) w'*estimatedCov*w + sum(abs(w))*eta;
 w0 = randfixedsum(50,1,1,0,1);
 A = []; % A*w <= b
 b = [];
